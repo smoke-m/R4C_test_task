@@ -17,6 +17,7 @@ class Robot(models.Model):
     )
     version = models.CharField(max_length=2, blank=False, null=False)
     created = models.DateTimeField(blank=False, null=False)
+    amount = models.PositiveSmallIntegerField()
 
     def __str__(self):
         return self.serial
