@@ -9,10 +9,10 @@ class RobotAdmin(admin.ModelAdmin):
     """Админ зона Order."""
 
     list_display = (
-        'serial',
-        'model',
-        'version',
-        'created',
+        "serial",
+        "model",
+        "version",
+        "created",
     )
     empty_value_display = settings.EMPTY_VALUE
-    list_filter = ('serial',)
+    list_filter = ("serial",)
