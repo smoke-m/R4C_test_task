@@ -13,7 +13,7 @@ class Robot(models.Model):
     model = models.ForeignKey(
         RobotModel,
         on_delete=models.CASCADE,
-        related_name="orders",
+        related_name="robots",
     )
     version = models.CharField(max_length=2, blank=False, null=False)
     created = models.DateTimeField(blank=False, null=False)
