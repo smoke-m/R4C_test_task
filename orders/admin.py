@@ -9,8 +9,9 @@ class OrderAdmin(admin.ModelAdmin):
     """Админ зона Order."""
 
     list_display = (
-        'customer',
-        'robot_serial',
+        "customer",
+        "robot_serial",
+        "completed",
     )
     empty_value_display = settings.EMPTY_VALUE
-    list_filter = ('customer',)
+    list_filter = ("customer",)
