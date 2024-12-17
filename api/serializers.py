@@ -3,7 +3,7 @@ from rest_framework import serializers
 from robots.models import Robot
 
 
-class RobotSerializerRead(serializers.ModelSerializer):
+class RobotSerializer(serializers.ModelSerializer):
     created = serializers.DateTimeField(
         format="%Y-%m-%d %H:%M:%S",
     )
@@ -12,16 +12,6 @@ class RobotSerializerRead(serializers.ModelSerializer):
         model = Robot
         fields = ("serial", "model", "version", "created")
 
-
-class RobotSerializerWrite(serializers.ModelSerializer):
-    serial = serializers.SerializerMethodField()
-    created = serializers.DateTimeField(
-        format="%Y-%m-%d %H:%M:%S",
-    )
-
-    class Meta:
-        model = Robot
-        fields = ("serial", "model", "version", "created")
-
-    def get_serial(self, obj):
-        return "{}-{}".format(obj.model, obj.version)
+    def to_internal_value(self, data):
+        data["serial"] = "{}-{}".format(data["model"], data["version"])
+        return super().to_internal_value(data)

@@ -13,6 +13,7 @@ class RobotAdmin(admin.ModelAdmin):
         "model",
         "version",
         "created",
+        "in_stock",
     )
     empty_value_display = settings.EMPTY_VALUE
     list_filter = ("serial",)
