@@ -118,3 +118,15 @@ STATIC_URL = "/static/"
 
 EMPTY_VALUE = "-пусто-"
 INTERVAL = 7
+
+# подключение движока filebased.EmailBackend
+EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
+# директория, в которую будут складываться файлы писем
+EMAIL_FILE_PATH = os.path.join(BASE_DIR, "sent_emails")
+# текст писма заказчику
+EMAIL = (
+    "Добрый день!\n"
+    "Недавно вы интересовались нашим роботом модели {}, версии {}.\n"
+    "Этот робот теперь в наличии.\n"
+    "Если вам подходит этот вариант - пожалуйста, свяжитесь с нами."
+)

@@ -4,7 +4,7 @@ from customers.models import Customer
 
 
 class Order(models.Model):
-    completed = models.BooleanField()
+    completed = models.BooleanField(default=False)
     customer = models.ForeignKey(
         Customer,
         on_delete=models.CASCADE,
